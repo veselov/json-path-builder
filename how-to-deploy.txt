@@ -1,2 +1,2 @@
 mvn verify
-mvn -Pfluentd-jdk-handler.sign -Prelease-sign-artifacts deploy
+mvn -Pjson-path-builder.sign -Prelease-sign-artifacts deploy
