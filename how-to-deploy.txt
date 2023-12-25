@@ -1,0 +1,2 @@
+mvn verify
+mvn -Pfluentd-jdk-handler.sign -Prelease-sign-artifacts deploy
