@@ -4,7 +4,7 @@
 
     <groupId>codes.vps</groupId>
     <artifactId>json-path-builder</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
 
     <name>JSON path builder</name>
     <description>Library to build JSON path expressions programatically.</description>
@@ -30,7 +30,7 @@
         <url>https://github.com/veselov/json-path-builder</url>
         <connection>scm:git:https://github.com/veselov/json-path-builder.git</connection>
         <developerConnection>scm:git:git@github.com:veselov/json-path-builder.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v0.2</tag>
     </scm>
 
     <distributionManagement>
