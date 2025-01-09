@@ -1,9 +1,14 @@
 package codes.vps.jpb;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
-public class JsonPath {
+/**
+ * Represents a JSON Path, as defined by
+ * <a href="https://goessner.net/articles/JsonPath/">Stefan Goessner</a>.
+ */
+public class JsonPath implements Iterable<PathElement> {
 
     protected final List<PathElement> path;
     protected final String strPath;
@@ -31,4 +36,8 @@ public class JsonPath {
 
     }
 
+    @Override
+    public Iterator<PathElement> iterator() {
+        return path.iterator();
+    }
 }
