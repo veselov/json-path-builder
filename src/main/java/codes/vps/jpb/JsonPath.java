@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Represents a JSON Path, as defined by
- * <a href="https://goessner.net/articles/JsonPath/">Stefan Goessner</a>.
+ * <a href="https://datatracker.ietf.org/doc/html/rfc9535">RFC-9535</a>.
  */
 public class JsonPath implements Iterable<PathElement> {
 
@@ -34,6 +34,18 @@ public class JsonPath implements Iterable<PathElement> {
 
         return b;
 
+    }
+
+    /**
+     * Parses a JSON Path. Only the paths that {@link JsonPathBuilder} can represent are accepted:
+     * the root identifier, followed by child segments that select a single member name, array index
+     * or wildcard, in either bracket or shorthand notation.
+     * @param str path to parse
+     * @return parsed path
+     * @throws ParseException if the path is not valid, or uses a construct that is not supported
+     */
+    public static JsonPath parse(String str) {
+        return new JsonPathParser(str).parse();
     }
 
     @Override

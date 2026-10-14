@@ -48,6 +48,24 @@ public class Property extends PathElement {
             if (c == '\'' || c == '\\') {
                 use.append('\\');
             }
+
+            // RFC-9535 string literals can not contain control characters, they must be escaped
+            if (c < 0x20) {
+                switch (c) {
+                    case '\b': use.append("\\b"); break;
+                    case '\f': use.append("\\f"); break;
+                    case '\n': use.append("\\n"); break;
+                    case '\r': use.append("\\r"); break;
+                    case '\t': use.append("\\t"); break;
+                    default:
+                        String hex = Integer.toHexString(c);
+                        use.append("\\u");
+                        for (int i = hex.length(); i < 4; i++) { use.append('0'); }
+                        use.append(hex);
+                }
+                continue;
+            }
+
             use.append(c);
 
         }
