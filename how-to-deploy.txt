@@ -1,2 +1,5 @@
+mvn release:prepare -DpreparationGoals= -DpushChanges=false -Dresume=false
+<check out the tag>
 mvn verify
 mvn -Pjson-path-builder.sign -Prelease-sign-artifacts deploy
+<push tag/branch>
